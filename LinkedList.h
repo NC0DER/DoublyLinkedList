@@ -20,7 +20,17 @@ namespace DLL {
             LinkedList(){}
             ~LinkedList(){}
 
-            void append(const T& element);
+            void append(const T& element){
+                if(head -> next.get() == nullptr){ //If list is empty.
+                    ListNode* last = head.get(); //Sets raw pointer to the first element.
+                }
+                else{
+                    ListNode* last = tail.get(); //Sets raw pointer to the last element.
+                }
+                last -> next = std::make_unique<ListNode>(element);
+                last -> data = element;
+                last -> next.get() -> prev = last;
+            }
             void remove(const T& element);
             void print();
     };
