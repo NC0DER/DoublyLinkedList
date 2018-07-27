@@ -34,8 +34,9 @@ int main() { //Temporary Test Main will be split from the implementation file in
     list5.remove(4);
     list5.remove(6);
     list5.print();
+    std::cout << "List empty? (0 = false, 1 = true): " << list5.empty() << std::endl;
 
-    std::cout << "Search has returned: " << list.search(10) << std::endl;
+    std::cout << "Search returns: " << list.search(10) << " (-1 for empty list, 0 not found, 1 found)" << std::endl;
     std::cout << "The length of the 1st list is: " << list.length() << std::endl;
     list.reverse_print();
     list2.print();
