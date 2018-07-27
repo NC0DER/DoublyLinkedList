@@ -3,7 +3,7 @@
 
 int main() { //Temporary Test Main will be split from the implementation file in the future
     DLL::LinkedList <int> list;
-    list.fill({1, 2, 3, 4, 5, 7, 8, 9}); //Instead of manually filling list
+    list.fill({1, 2, 3, 4, 5, 7, 8, 9, 10}); //Instead of manually filling list
 
 
     DLL::LinkedList <bool> list2;

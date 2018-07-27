@@ -26,7 +26,7 @@ namespace DLL {
 
             void fill(std::initializer_list<T> elements){
                 for(auto element : elements){
-                    this.append(element);
+                    this->append(element);
                 }
             }
             void append(const T& element){
