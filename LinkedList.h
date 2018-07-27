@@ -37,12 +37,12 @@ namespace DLL {
 
             bool empty(){
                 if (head.get() == nullptr){ //If list is empty.
-                    return 1; //list is empty
+                    return true; //list is empty
                 }else{
-                    return 0;
+                    return false;
                 }
             }
-            
+
             int length(){
                 ListNode* curr = nullptr;
                 int count = 0;

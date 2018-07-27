@@ -1,5 +1,4 @@
 #include "LinkedList.h"
-#include <string>
 
 int main() { //Temporary Test Main will be split from the implementation file in the future
     DLL::LinkedList <int> list; //Create an empty list
