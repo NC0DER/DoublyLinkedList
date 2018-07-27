@@ -53,7 +53,28 @@ namespace DLL {
                 }
             }
 
-            void remove(const T& element);
+            int remove(const T& element){
+                ListNode* curr = nullptr;
+                if (head.get() == nullptr){ //If list is empty.
+                    return -1; //Error: Can't remove from empty list.
+                }
+                //List has one or more elements.
+                curr = head.get();
+                while(curr != nullptr){
+                    if(curr -> data == element){
+                        if(curr -> prev == nullptr){ //Found element is head
+                            //TO-DO: remove head node
+                        }else if( curr -> next.get() == nullptr){ // Found element is tail
+                            //TO-DO: remove tail node
+                        }else{ //Found element is intermediate
+                            //TO-DO: remove intermediate node
+                        }
+                        return 1; //Element found in list
+                    }
+                    curr = curr -> next.get(); //Traverse the next element
+                }
+                return 0; //Element not found in list
+            }
             
             void print() {
                 ListNode* curr = head.get(); //Start from the start of the list.
