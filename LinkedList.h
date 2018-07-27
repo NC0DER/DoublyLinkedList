@@ -61,13 +61,22 @@ namespace DLL {
                 //List has one or more elements.
                 curr = head.get();
                 while(curr != nullptr){
-                    if(curr -> data == element){
-                        if(curr -> prev == nullptr){ //Found element is head
-                            //TO-DO: remove head node
-                        }else if( curr -> next.get() == nullptr){ // Found element is tail
-                            //TO-DO: remove tail node
-                        }else{ //Found element is intermediate
-                            //TO-DO: remove intermediate node
+                    if(curr -> data == element){ //Found element
+                        if(curr -> prev == nullptr){ //is head
+                            head = std::move(curr -> next); //Head now points to the next element
+                        }
+                        else if(curr -> next.get() == nullptr){ //is tail
+                            tail = curr -> prev; //Reference the previous element
+                            tail -> next.release(); //Release the old tail element
+                            if(head.get() == tail){
+                                tail = nullptr; //tail and head should not be the same.
+                            } //List contains one element
+                        }
+                        else{ //Found element is intermediate
+                            //The next node should point to the previous one
+                            curr -> next -> prev = curr -> prev;
+                            curr -> prev -> next = std::move(curr -> next);
+                            //The prev node now points to the next one of current.
                         }
                         return 1; //Element found in list
                     }
