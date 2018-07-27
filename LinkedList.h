@@ -64,6 +64,7 @@ namespace DLL {
                     if(curr -> data == element){ //Found element
                         if(curr -> prev == nullptr){ //is head
                             head = std::move(curr -> next); //Head now points to the next element
+                            //New head's previous element points to nothing, making it a true head element
                         }
                         else if(curr -> next.get() == nullptr){ //is tail
                             tail = curr -> prev; //Reference the previous element
@@ -72,7 +73,7 @@ namespace DLL {
                                 tail = nullptr; //tail and head should not be the same.
                             } //List contains one element
                         }
-                        else{ //Found element is intermediate
+                        else{//is intermediate
                             //The next node should point to the previous one
                             curr -> next -> prev = curr -> prev;
                             curr -> prev -> next = std::move(curr -> next);
