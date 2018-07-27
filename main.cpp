@@ -2,23 +2,14 @@
 #include <string>
 
 int main() { //Temporary Test Main will be split from the implementation file in the future
-    DLL::LinkedList <int> list;
-    list.fill({1, 2, 3, 4, 5, 7, 8, 9, 10}); //Instead of manually filling list
+    DLL::LinkedList <int> list; //Create an empty list
+    list.fill({1, 2, 3, 4, 5, 7, 8, 9, 10}); //fill list by appending iteratively.
 
+    DLL::LinkedList <bool> list2({true, false, false, true}); // same as filling list but with a constructor.
+    DLL::LinkedList <char> list3({'a', 'b', 'c'});
 
-    DLL::LinkedList <bool> list2;
-    list2.append(true);
-    list2.append(false);
-    list2.append(false);
-    list2.append(true);
-
-    DLL::LinkedList <char> list3;
-    list3.append('a');
-    list3.append('b');
-    list3.append('c');
-
-    DLL::LinkedList <std::string> list4;
-    list4.append("Hello");
+    DLL::LinkedList <std::string> list4; //Empty list
+    list4.append("Hello"); //Fill it manually
     list4.append("World");
 
     list.reverse_print();
