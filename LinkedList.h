@@ -34,6 +34,23 @@ namespace DLL {
                     this->append(element);
                 }
             }
+
+            int search(const T& element){
+                ListNode* curr = nullptr;
+                if (head.get() == nullptr){ //If list is empty.
+                    return -1;
+                }
+               //If list has one or more elements
+                curr = head.get();
+                while(curr != nullptr){
+                    if(curr -> data == element){
+                        return 1; //Element found in list
+                    }
+                    curr = curr -> next.get(); //Traverse the next element
+                }
+                return 0; //Element not found in list
+            }
+            
             void append(const T& element){
                 ListNode* curr = nullptr;
                 if (head.get() == nullptr){ //If list is empty.
