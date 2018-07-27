@@ -29,7 +29,7 @@ namespace DLL {
             LinkedList(){}
             ~LinkedList(){}
 
-            void fill(std::initializer_list<T> elements){ // appends new elements at the end of the list
+            void fill(std::initializer_list<T> elements){ // appends new elements at the end of the list.
                 for(auto element : elements){
                     this->append(element);
                 }
@@ -39,7 +39,7 @@ namespace DLL {
                 if (head.get() == nullptr){ //If list is empty.
                     head = std::make_unique<ListNode>(element);
                 }
-                else if(head.get() -> next.get() == nullptr){ //If list has one element
+                else if(head.get() -> next.get() == nullptr){ //If list has one element.
                      head.get() -> next = std::make_unique<ListNode>(element);
                      curr = head.get() -> next.get(); //Sets raw pointer to the first element.
                      curr -> prev = head.get();
@@ -61,29 +61,32 @@ namespace DLL {
                 //List has one or more elements.
                 curr = head.get();
                 while(curr != nullptr){
-                    if(curr -> data == element){ //Found element
-                        if(curr -> prev == nullptr){ //is head
-                            head = std::move(curr -> next); //Head now points to the next element
-                            //New head's previous element points to nothing, making it a true head element
+                    if(curr -> data == element){ //Found element.
+                        if(curr -> prev == nullptr){ //it's head
+                            head = std::move(curr -> next); //Head now points to the next element.
+                            if (head) {
+                                head->prev = nullptr;
+                            }
+                        //New head's previous element points to nothing, making it a true head element.
                         }
-                        else if(curr -> next.get() == nullptr){ //is tail
-                            tail = curr -> prev; //Reference the previous element
-                            tail -> next.release(); //Release the old tail element
+                        else if(curr -> next.get() == nullptr){ //it's tail.
+                            tail = curr -> prev; //Reference the previous element.
+                            tail -> next.release(); //Release the old tail element.
                             if(head.get() == tail){
                                 tail = nullptr; //tail and head should not be the same.
-                            } //List contains one element
+                            } //List contains one element.
                         }
-                        else{//is intermediate
+                        else{//it's intermediate.
                             //The next node should point to the previous one
                             curr -> next -> prev = curr -> prev;
                             curr -> prev -> next = std::move(curr -> next);
                             //The prev node now points to the next one of current.
                         }
-                        return 1; //Element found in list
+                        return 1; //Element found in list.
                     }
-                    curr = curr -> next.get(); //Traverse the next element
+                    curr = curr -> next.get(); //Traverse the next element.
                 }
-                return 0; //Element not found in list
+                return 0; //Element not found in list.
             }
             
             void print() {
