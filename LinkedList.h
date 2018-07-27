@@ -43,7 +43,7 @@ namespace DLL {
             }
             void remove(const T& element);
             void print() {
-                ListNode* curr = head.get();
+                ListNode* curr = head.get(); //Start from the start of the list.
                 std::cout << "[ ";
                 while (curr != nullptr) {
                     std::cout << curr->data << " ";
@@ -51,7 +51,15 @@ namespace DLL {
                 }
                 std::cout << "]" << std::endl;
             }
-            
+            void reverse_print(){
+                ListNode* curr = tail; //Start from the end of the list.
+                std::cout << "[ ";
+                while (curr != nullptr) {
+                    std::cout << curr->data << " ";
+                    curr = curr->prev;
+                }
+                std::cout << "]" << std::endl;
+            }
     };
 }
 
