@@ -52,22 +52,25 @@ namespace DLL {
                     tail = curr;// The new last element is the tail.
                 }
             }
+
             void remove(const T& element);
+            
             void print() {
                 ListNode* curr = head.get(); //Start from the start of the list.
                 std::cout << "[ ";
                 while (curr != nullptr) {
-                    std::cout << curr->data << " ";
-                    curr = curr->next.get();
+                    std::cout << curr -> data << " ";
+                    curr = curr -> next.get();
                 }
                 std::cout << "]" << std::endl;
             }
+
             void reverse_print(){
                 ListNode* curr = tail; //Start from the end of the list.
                 std::cout << "[ ";
                 while (curr != nullptr) {
-                    std::cout << curr->data << " ";
-                    curr = curr->prev;
+                    std::cout << curr -> data << " ";
+                    curr = curr -> prev;
                 }
                 std::cout << "]" << std::endl;
             }
