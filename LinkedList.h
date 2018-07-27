@@ -35,6 +35,21 @@ namespace DLL {
                 }
             }
 
+            int length(){
+                ListNode* curr = nullptr;
+                int count = 0;
+                if (head.get() == nullptr){ //If list is empty.
+                    return count; //length = 0;
+                }
+               //If list has one or more elements
+                curr = head.get();
+                while(curr != nullptr){
+                    ++count;
+                    curr = curr -> next.get(); //Traverse the next element
+                }
+                return count; //return the length
+            }
+
             int search(const T& element){
                 ListNode* curr = nullptr;
                 if (head.get() == nullptr){ //If list is empty.
@@ -50,7 +65,7 @@ namespace DLL {
                 }
                 return 0; //Element not found in list
             }
-            
+
             void append(const T& element){
                 ListNode* curr = nullptr;
                 if (head.get() == nullptr){ //If list is empty.

@@ -3,7 +3,7 @@
 
 int main() { //Temporary Test Main will be split from the implementation file in the future
     DLL::LinkedList <int> list; //Create an empty list
-    list.fill({1, 2, 3, 4, 5, 7, 8, 9, 10}); //fill list by appending iteratively.
+    list.fill({1, 2, 3, 4, 5, 6, 7, 8, 9, 10}); //fill list by appending iteratively.
 
     DLL::LinkedList <bool> list2({true, false, false, true}); // same as filling list but with a constructor.
     DLL::LinkedList <char> list3({'a', 'b', 'c'});
@@ -35,6 +35,8 @@ int main() { //Temporary Test Main will be split from the implementation file in
     list5.remove(6);
     list5.print();
 
+    std::cout << "Search has returned: " << list.search(10) << std::endl;
+    std::cout << "The length of the 1st list is: " << list.length() << std::endl;
     list.reverse_print();
     list2.print();
     list3.print();
