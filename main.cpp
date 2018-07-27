@@ -3,16 +3,8 @@
 
 int main() { //Temporary Test Main will be split from the implementation file in the future
     DLL::LinkedList <int> list;
-    list.append(1);
-    list.append(2);
-    list.append(3);
-    list.append(4);
-    list.append(5);
-    list.append(6);
-    list.append(7);
-    list.append(8);
-    list.append(9);
-    list.append(10);
+    list.fill({1, 2, 3, 4, 5, 7, 8, 9}); //Instead of manually filling list
+
 
     DLL::LinkedList <bool> list2;
     list2.append(true);

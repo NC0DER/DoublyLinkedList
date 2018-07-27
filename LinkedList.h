@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <memory>
+#include <initializer_list>
 
 namespace DLL {
     template <typename T> class LinkedList{
@@ -23,6 +24,11 @@ namespace DLL {
             LinkedList(){}
             ~LinkedList(){}
 
+            void fill(std::initializer_list<T> elements){
+                for(auto element : elements){
+                    this.append(element);
+                }
+            }
             void append(const T& element){
                 ListNode* curr = nullptr;
                 if (head.get() == nullptr){ //If list is empty.
