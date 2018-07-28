@@ -16,5 +16,22 @@ SCENARIO("Test Linked List") {
         REQUIRE(result == -1);
       }
     }
+    WHEN("The Linked List has one element") {
+      dll.append(111);
+      THEN("Test empty") {
+        REQUIRE(dll.empty() == false);
+      }
+      THEN("Test length") {
+        REQUIRE(dll.length() == 1);
+      }
+      THEN("Test search for a node that does not exist") {
+        auto result = dll.search(555);
+        REQUIRE(result == 0);
+      }
+      THEN("Test search for a node that does exist") {
+        auto result = dll.search(111);
+        REQUIRE(result == 1);
+      }
+    }
   }
 }
