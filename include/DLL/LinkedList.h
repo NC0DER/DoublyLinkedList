@@ -86,9 +86,9 @@ namespace DLL {
                 if (empty()){
                     head = std::make_unique<ListNode>(element);
                 }
-                else if(head.get() -> next.get() == nullptr){ //If list has one element.
-                     head.get() -> next = std::make_unique<ListNode>(element);
-                     curr = head.get() -> next.get(); //Sets raw pointer to the first element.
+                else if(head -> next.get() == nullptr){ //If list has one element.
+                     head -> next = std::make_unique<ListNode>(element);
+                     curr = head -> next.get(); //Sets raw pointer to the first element.
                      curr -> prev = head.get();
                      tail = curr;
                 }
