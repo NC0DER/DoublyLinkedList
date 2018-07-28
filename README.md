@@ -35,3 +35,6 @@ int main() {
 }
 ```
 Compile using a `-std=c++14` flag because of the `make_unique()` call and other features that are used.
+
+## Note  
+This library is not intended for commercial use, it's an experimental project for practical application of C++14 features.
