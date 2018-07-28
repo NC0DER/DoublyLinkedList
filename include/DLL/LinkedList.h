@@ -13,9 +13,8 @@ namespace DLL {
                 ListNode* prev = nullptr; //weakptr needs to be cast back to a shared_ptr to check its state.
                 T data{}; //Initialize empty;
 
-                ListNode(const T& element){
-                    this->data = element;
-                }
+                ListNode() = default;
+                ListNode(const T& element) : data(element){}
             };
         public:
             std::unique_ptr<ListNode> head;
@@ -26,8 +25,16 @@ namespace DLL {
                     this->append(element);
                 }
             }
-            LinkedList(){}
-            ~LinkedList(){}
+            LinkedList() = default;
+            ~LinkedList() noexcept { //Custom iterative destructor to minimize the stack space during object destruction
+                while(head) head = std::move(head->next);
+            }
+            //Non-copyable.
+            LinkedList(const LinkedList&) = delete; //Delete copy constructor.
+            LinkedList& operator=(const LinkedList& other) = delete; //Delete copy assignment operator.
+
+            LinkedList(LinkedList&& other) = default; //Move constructor
+            LinkedList& operator=(LinkedList&& other) = default; //Move assignment operator
 
             void fill(std::initializer_list<T> elements){ // appends new elements at the end of the list.
                 for(auto element : elements){
