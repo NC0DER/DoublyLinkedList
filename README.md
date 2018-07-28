@@ -1,5 +1,5 @@
 # DoublyLinkedList
-A Doubly Linked List Library made with templates, smart pointers, std::containers and other C++11 and later version's coding conventions.  
+A Doubly Linked List Library made with templates, smart pointers, std::containers and other C++14, C++11 coding conventions.  
 Features a main.cpp for testing the effect of the methods described below.  
 If you like to give it a try you can just simply include `LinkedList.h` to your project.  
 
@@ -9,9 +9,9 @@ If you like to give it a try you can just simply include `LinkedList.h` to your 
 - [x] `length()` : returns an `int` which holds the length of the list.  
 - [x] `append()` : appends the provided element at the end of the list.  
 - [x] `remove()` : Searchs and removes the provided element in any part of the list.  
-- [x] `search()` : Searchs the list for the provided element, if its found 1 is returned, if not 0, if the list is empty -1 (error).  
+- [x] `search()` : Searchs the list for the provided element, if it's found 1 is returned, if not 0, if the list is empty -1 (error).  
 - [x] `print()`  : prints the list in this format `[ <element1> ... <elementN> ]`, where N is the order of insertion.  
-- [x] `reverse_ print()`  : prints the list in this format `[ <elementN> ... <element1>`, where N is the order of insertion.  
+- [x] `reverse_ print()`  : prints the list in this format `[ <elementN> ... <element1> ]`, where N is the order of insertion.  
 
 ## Example Usage
 Make a main.cpp, include the LinkedList.h and you can declare a DoublyLinkedList like this:  
@@ -32,5 +32,6 @@ int main() {
     //...
     
     return 0;
+}
 ```
 Compile using a `-std=c++14` flag because of the `make_unique()` call and other features that are used.
