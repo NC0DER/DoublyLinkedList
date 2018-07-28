@@ -111,7 +111,7 @@ namespace DLL {
                         }
                         else if(curr -> next.get() == nullptr){ //it's tail.
                             tail = curr -> prev; //Reference the previous element.
-                            tail -> next.release(); //Release the old tail element.
+                            tail -> next.reset(); //Destroy the old tail element.
                             if(head.get() == tail){
                                 tail = nullptr; //tail and head should not be the same.
                             } //List contains one element.
