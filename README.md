@@ -41,8 +41,8 @@ The testing is done with the catch library and the test's build with cmake, to r
 ```bash
 mkdir build # Make build folder for tests.
 cd build
-cmake .. # Run this command and the above just once.
-make  # Build tests / re-run make if the files change.
+cmake .. # Run this command and the ones above just once.
+make  # Build tests / re-run make if the header files change.
 ./test/tests # Run all tests.
 
 ```
