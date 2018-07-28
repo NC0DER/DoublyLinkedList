@@ -43,17 +43,17 @@ namespace DLL {
             }
 
             bool empty(){
-                if (head.get() == nullptr){ //If list is empty.
-                    return true; //list is empty
+                if (head){ //If head != nullptr then
+                    return false; //list is not empty
                 }else{
-                    return false;
+                    return true;
                 }
             }
 
             int length(){
                 ListNode* curr = nullptr;
                 int count = 0;
-                if (head.get() == nullptr){ //If list is empty.
+                if (empty()){
                     return count; //length = 0;
                 }
                //If list has one or more elements
@@ -67,7 +67,7 @@ namespace DLL {
 
             int search(const T& element){
                 ListNode* curr = nullptr;
-                if (head.get() == nullptr){ //If list is empty.
+                if (empty()){
                     return -1;
                 }
                //If list has one or more elements
@@ -83,7 +83,7 @@ namespace DLL {
 
             void append(const T& element){
                 ListNode* curr = nullptr;
-                if (head.get() == nullptr){ //If list is empty.
+                if (empty()){
                     head = std::make_unique<ListNode>(element);
                 }
                 else if(head.get() -> next.get() == nullptr){ //If list has one element.
@@ -102,7 +102,7 @@ namespace DLL {
 
             int remove(const T& element){
                 ListNode* curr = nullptr;
-                if (head.get() == nullptr){ //If list is empty.
+                if (empty()){
                     return -1; //Error: Can't remove from empty list.
                 }
                 //List has one or more elements.
