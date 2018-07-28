@@ -38,7 +38,7 @@ namespace DLL {
 
             void fill(std::initializer_list<T> elements){ // appends new elements at the end of the list.
                 for(auto element : elements){
-                    this->append(element);
+                    append(element);
                 }
             }
 
@@ -58,7 +58,7 @@ namespace DLL {
                 }
                //If list has one or more elements
                 curr = head.get();
-                while(curr != nullptr){
+                while(curr){
                     ++count;
                     curr = curr -> next.get(); //Traverse the next element
                 }
@@ -72,7 +72,7 @@ namespace DLL {
                 }
                //If list has one or more elements
                 curr = head.get();
-                while(curr != nullptr){
+                while(curr){
                     if(curr -> data == element){
                         return 1; //Element found in list
                     }
@@ -86,7 +86,7 @@ namespace DLL {
                 if (empty()){
                     head = std::make_unique<ListNode>(element);
                 }
-                else if(head -> next.get() == nullptr){ //If list has one element.
+                else if(!head -> next.get()){ //If list has one element.
                      head -> next = std::make_unique<ListNode>(element);
                      curr = head -> next.get(); //Sets raw pointer to the first element.
                      curr -> prev = head.get();
@@ -107,16 +107,16 @@ namespace DLL {
                 }
                 //List has one or more elements.
                 curr = head.get();
-                while(curr != nullptr){
+                while(curr){
                     if(curr -> data == element){ //Found element.
-                        if(curr -> prev == nullptr){ //it's head
+                        if(!curr -> prev){ //it's head
                             head = std::move(curr -> next); //Head now points to the next element.
                             if (head) {
                                 head->prev = nullptr;
                             }
                         //New head's previous element points to nothing, making it a true head element.
                         }
-                        else if(curr -> next.get() == nullptr){ //it's tail.
+                        else if(!curr -> next.get()){ //it's tail.
                             tail = curr -> prev; //Reference the previous element.
                             tail -> next.reset(); //Destroy the old tail element.
                             if(head.get() == tail){
@@ -139,7 +139,7 @@ namespace DLL {
             void print() {
                 ListNode* curr = head.get(); //Start from the start of the list.
                 std::cout << "[ ";
-                while (curr != nullptr) {
+                while(curr){
                     std::cout << curr -> data << " ";
                     curr = curr -> next.get();
                 }
@@ -149,7 +149,7 @@ namespace DLL {
             void reverse_print(){
                 ListNode* curr = tail; //Start from the end of the list.
                 std::cout << "[ ";
-                while (curr != nullptr) {
+                while(curr){
                     std::cout << curr -> data << " ";
                     curr = curr -> prev;
                 }
