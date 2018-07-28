@@ -12,8 +12,7 @@ SCENARIO("Test Linked List") {
         REQUIRE(dll.length() == 0);
       }
       THEN("Test search for a node that does not exist") {
-        auto result = dll.search(555);
-        REQUIRE(result == -1);
+        REQUIRE(dll.search(555) == -1);
       }
     }
     WHEN("The Linked List has one element") {
@@ -25,12 +24,65 @@ SCENARIO("Test Linked List") {
         REQUIRE(dll.length() == 1);
       }
       THEN("Test search for a node that does not exist") {
-        auto result = dll.search(555);
-        REQUIRE(result == 0);
+        REQUIRE(dll.search(555) == 0);
       }
       THEN("Test search for a node that does exist") {
-        auto result = dll.search(111);
-        REQUIRE(result == 1);
+        REQUIRE(dll.search(111) == 1);
+      }
+    }
+    WHEN("The Linked List has two elements") {
+      dll.append(111);
+      dll.append(10);
+      THEN("Test empty") {
+        REQUIRE(dll.empty() == false);
+      }
+      THEN("Test length") {
+        REQUIRE(dll.length() == 2);
+      }
+      THEN("Test search for a node that does not exist") {
+        REQUIRE(dll.search(555) == 0);
+      }
+      THEN("Test search for a node that does exist") {
+        REQUIRE(dll.search(10) == 1);
+        REQUIRE(dll.search(111) == 1);
+      }
+    }
+    WHEN("The Linked List has three elements") {
+      dll.append(111);
+      dll.append(10);
+      dll.append(6);
+      THEN("Test empty") {
+        REQUIRE(dll.empty() == false);
+      }
+      THEN("Test length") {
+        REQUIRE(dll.length() == 3);
+      }
+      THEN("Test search for a node that does not exist") {
+        REQUIRE(dll.search(555) == 0);
+      }
+      THEN("Test search for a node that does exist") {
+        REQUIRE(dll.search(10) == 1);
+        REQUIRE(dll.search(111) == 1);
+        REQUIRE(dll.search(6) == 1);
+      }
+    }
+    WHEN("The Linked List has more than three elements") {
+      for (int i = 0; i < 10; ++i) {
+        dll.append(i);
+      }
+      THEN("Test empty") {
+        REQUIRE(dll.empty() == false);
+      }
+      THEN("Test length") {
+        REQUIRE(dll.length() == 10);
+      }
+      THEN("Test search for a node that does not exist") {
+        REQUIRE(dll.search(555) == 0);
+      }
+      THEN("Test search for a node that does exist") {
+        for (int i = 0; i < 10; ++i) {
+          REQUIRE(dll.search(i) == 1);
+        }
       }
     }
   }
