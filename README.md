@@ -36,5 +36,15 @@ int main() {
 ```
 Compile using a `-std=c++14` flag because of the `make_unique()` call and other features that are used.
 
+## Testing  
+The testing is done with the catch library and the test's build with cmake, to run the the tests, use the following commands:
+```bash
+mkdir build # Make build folder for tests.
+cd build
+cmake .. # Run this command and the above just once.
+make  # Build tests / re-run make if the files change.
+./test/tests # Run all tests.
+
+```
 ## Note  
 This library is not intended for commercial use, it's an experimental project for practical application of C++14 features.
